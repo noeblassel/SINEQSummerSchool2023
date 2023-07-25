@@ -166,7 +166,7 @@ module ParRep
 
     function check_dephasing!(checker,replicas,current_macrostate,step_n) end
     function get_macrostate!(checker,walker,current_macrostate) end
-    function update_microstate!(simulator,walker) end
+    function update_microstate!(simulator,walker;kwargs...) end
     function check_death(checker,macrostate_a,macrostate_b,rng) end
     function log_state!(logger,step; kwargs...) end
 end
