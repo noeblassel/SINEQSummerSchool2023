@@ -2,7 +2,7 @@ module ParRep
 
     export GenParRepAlgorithm
 
-    using Random, Base.Threads
+    using Random, Base.Threads, Logging
 
     Base.@kwdef mutable struct GenParRepAlgorithm{S,P,M,K,R,X,L}
         N::Int #number of replicas
@@ -47,7 +47,7 @@ module ParRep
                 initialization_step +=1
                 log_state!(alg.logger,:initialisation; algorithm = alg)
             end
-            println("Succesfully initialised in state ",current_macrostate)
+            @info "Initialised in state $(current_macrostate)"
 
             alg.n_initialisation_ticks += initialization_step
             alg.simulation_time += initialization_step
@@ -116,7 +116,7 @@ module ParRep
             alg.wallclock_time += dephasing_step
 
             if has_dephased
-                println("Successfully dephased in state $current_macrostate")
+                @info "Successfully dephased in state $current_macrostate"
                 ## === PARALLEL PHASE === 
                 killed = false
                 i_min = nothing
@@ -136,8 +136,7 @@ module ParRep
                             killed = true
                             i_min = i
                             new_macrostate = rep_macrostate
-                            # println("\t\tReplica $i crossed to state $(rep_macrostate)")
-                            # print("M")
+                            @info "Replica $i escaped to state $(rep_macrostate)"
                             break
                         end
                     end
