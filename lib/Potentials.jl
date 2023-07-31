@@ -1,9 +1,10 @@
 module Potentials
 
-    export mueller_brown, grad_mueller_brown, grad_mueller_brown!, LJClusterInteraction2D,lj_energy,lj_grad,lj_energy_threaded,lj_grad_threaded
-    using Threads
+    export mueller_brown, grad_mueller_brown, LJClusterInteraction2D,lj_energy,lj_grad,lj_energy_threaded,lj_grad_threaded,entropic_switch,grad_entropic_switch
+    using Threads, Parameters
 
 ### Mueller-Brown potential
+
 
     const A_mb = [-200,-100,-170,15]
     const a_mb = [-1,-1,-6.5,0.7]
@@ -19,12 +20,6 @@ mueller_brown(X) = mueller_brown(X...)
 function grad_mueller_brown(x,y)
     v = @. A_mb*exp(a_mb*(x-x0_mb)^2 + b_mb*(x-x0_mb)*(y-y0_mb)+c_mb*(y-y0_mb)^2)
     return [sum(@. (2a_mb*(x-x0_mb)+b_mb*(y-y0_mb))*v), sum(@. (2c_mb*(y-y0_mb)+b_mb*(x-x0_mb))*v) ]
-end
-
-function grad_mueller_brown!(x,y,grad)
-    v = @. A_mb*exp(a_mb*(x-x0_mb)^2 + b_mb*(x-x0_mb)*(y-y0_mb)+c_mb*(y-y0_mb)^2)
-    grad[1] = sum(@. (2a_mb*(x-x0_mb)+b_mb*(y-y0_mb))*v)
-    grad[2] = sum(@. (2c_mb*(y-y0_mb)+b_mb*(x-x0_mb))*v)
 end
 
 grad_mueller_brown(X) = grad_mueller_brown(X...)
@@ -110,12 +105,42 @@ function lj_grad_threaded(X,inter::LJClusterInteraction2D{N}) where {N}
 end
 
 ### Entropic switch potential
+
+    const es_saddles = [-0.6172723078764598 0.6172723078764598 0.0; 1.1027345175080963 1.1027345175080963 -0.19999999999972246]
+    const es_pos_eigvecs = [0.6080988038706289 -0.6080988038706289 -1.0; 0.793861351075306 0.793861351075306 0.0]
+    const es_minima = [-1.0480549928242202 0.0 1.0480549928242202; -0.042093666306677734 1.5370820044494633 -0.042093666306677734]
     
 
-    Base.@kwdef struct EntropicSwitchProperties
-        minima = []
-        saddles = []
-        normal_hyperplanes = []
+    function entropic_switch(x, y)
+        tmp1 = x^2
+        tmp2 = (y - 1 / 3)^2
+        return 3 * exp(-tmp1) * (exp(-tmp2) - exp(-(y - 5 / 3)^2)) - 5 * exp(-y^2) * (exp(-(x - 1)^2) + exp(-(x + 1)^2)) + 0.2 * tmp1^2 + 0.2 * tmp2^2
     end
+
+    function entropic_switch(q)
+        return entropic_switch(q...)
+    end
+
+    function grad_entropic_switch(x, y)
+
+        tmp1 = exp(4*x)
+        tmp2 = exp(-x^2 - 2*x - y^2 - 1)
+        tmp3 = exp(-x^2)
+        tmp4 = exp(-(y-1/3)^2)
+        tmp5 = exp(-(y-5/3)^2)
+
+        dx = 0.8*x^3 + 10*(tmp1*(x - 1) + x + 1)*tmp2 - 6*tmp3*x*(tmp4 - tmp5)
+
+        dy = 10*(tmp1 + 1)*y*tmp2 + 3*tmp3*(2*tmp5*(y - 5/3) - 2*tmp4*(y - 1/3)) + 0.8*(y - 1/3)^3
+
+        return [dx, dy]
+    end
+
+    function grad_entropic_switch(q)
+        return grad_entropic_switch(q...)
+    end
+
+
+
 
 end
