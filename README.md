@@ -57,7 +57,7 @@ pip3 install jupyter
     
     On Mac OS X, modify your `.bash_profile` file (located in your home directory) by adding to a new line:
     ```bash
-    PATH="$PATH:the/absolute/path/to/your/folder
+    PATH="$PATH:the/absolute/path/to/your/folder"
     ```
     Save the file, then close the text editor, then run `source ~/.bash_profile` (or restart your terminal). 
     
