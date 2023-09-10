@@ -62,3 +62,11 @@ pip3 install jupyter
     Save the file, then close the text editor, then run `source ~/.bash_profile` (or restart your terminal). 
     
     On Linux, modify the `.bashrc` file in the same manner as for Mac OS X.
+
+
+### Installing Julia packages for the hands-on sessions
+In the folder containing this `README.md`, execute the script:
+```bash
+julia setup.jl
+```
+which will add the necessary packages to your Julia environment. As this is a lengthy process, be sure to do it **before** the start of the summer school.
