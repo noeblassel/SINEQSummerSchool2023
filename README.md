@@ -34,14 +34,14 @@ Pkg.add("IJulia")
 ```
 so that Julia can be run inside Jupyter Notebooks.
 
-### Verify your installations
+### Verifying your installations
 Run the notebook `installation.ipynb` using the following in your command line interface:
 ```bash
 jupyter-notebook installation.ipynb
 ```
 
 
-### Install PyMol
+### Installing PyMol
 For the Molly session, the molecular visualization software PyMol is recommended. Install it following the instructions provided [here](https://pymol.org/2/#download). If you have installed Anaconda, this can be done by running
 ```bash
 conda install -c schrodinger pymol-bundle
