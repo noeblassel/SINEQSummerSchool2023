@@ -42,8 +42,4 @@ jupyter-notebook installation.ipynb
 
 
 ### Installing PyMol
-For the Molly session, the molecular visualization software PyMol is recommended. Install it following the instructions provided [here](https://pymol.org/2/#download). If you have installed Anaconda, this can be done by running
-```bash
-conda install -c schrodinger pymol-bundle
-```
-in the command line.
+For the Molly session, the molecular visualization software PyMol is recommended. You can install it by following the instructions provided [here](https://pymol.org/2/support.html?#installation).
