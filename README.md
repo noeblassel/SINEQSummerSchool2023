@@ -35,7 +35,7 @@ Pkg.add("IJulia")
 so that Julia can be run inside Jupyter Notebooks.
 
 ### Verifying your installations
-Run the notebook `installation.ipynb` using the following in your command line interface:
+Run the notebook `installation.ipynb` using the following in a shell:
 ```bash
 jupyter-notebook installation.ipynb
 ```
