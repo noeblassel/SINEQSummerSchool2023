@@ -16,7 +16,7 @@ We provide Julia notebooks in this repository. The three main ingredients requir
 ### Installing Python, Jupyter and scientific computing libraries
 * If Python is not installed on your system, install it using Anaconda. It conveniently installs Python, the Jupyter Notebook, and other commonly used packages for scientific computing and data sciences. You can download Anaconda [here](https://www.anaconda.com/download) (install it with the latest Python version). Then install the version of Anaconda which you downloaded, following the instructions on the download page. Once installed, you can simply launch Jupyter Notebook by running in a shell:
     ```bash
-    jupyter notebook
+    jupyter-notebook
     ```
 
 * If you already have Python installed (>= 3.3 or 2.7), run the following commands in a shell (use pip instead of pip3 if you use 2.7):
