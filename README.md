@@ -7,7 +7,7 @@ The files for each sessions are given below.
 * Tuesday, Sept. 26: [Nonequilibrium systems and coupling methods]()
 * Wednesday, Sept. 27, morning: [Accelerated molecular dynamics methods]()
 * Wednesday, Sept. 27, afternoon: [Adaptive multilevel splitting methods]()
-* Thursday, Sept. 28: [Computing average properties in molecular dynamics with Molly.jl]()
+* Thursday, Sept. 28: [Computing average properties in molecular dynamics with Molly.jl](notebooks/molly_average.ipynb)
 * Friday, Sept. 29: [Computation of transport coefficients with Molly.jl]()
 
 ## Various installations
