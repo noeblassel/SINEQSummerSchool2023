@@ -40,6 +40,5 @@ Run the notebook `installation.ipynb` using the following in a shell:
 jupyter-notebook installation.ipynb
 ```
 
-
 ### Installing PyMol
 For the Molly session, the molecular visualization software PyMol is recommended. You can install it by following the instructions provided [here](https://pymol.org/2/support.html?#installation).
