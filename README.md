@@ -34,7 +34,7 @@ Pkg.add("IJulia")
 ```
 so that Julia can be run inside Jupyter Notebooks.
 
-### Verifying your installations and enable multithreading in Jupyter
+### Verifying your installations and enabling multithreading in Jupyter
 Run the notebook `installation.ipynb` using the following in a shell:
 ```bash
 jupyter-notebook installation.ipynb
