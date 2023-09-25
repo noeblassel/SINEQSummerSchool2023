@@ -4,7 +4,7 @@
 This repository contains the various files for the hands-on sessions of the SINEQ summer school @ CERMICS, September 2023. The schedule can be found [here](https://sites.google.com/view/aleiac/anr-sineq/summer-school-mol-dyn-on-julia).
 The files for each sessions are given below.
 * Monday, Sept. 25: [Discretization of Langevin dynamics and its Metropolization](notebooks/langevin.ipynb)
-* Tuesday, Sept. 26: [Nonequilibrium systems and coupling methods]()
+* Tuesday, Sept. 26: [Nonequilibrium systems and coupling methods](notebooks/coupling.ipynb)
 * Wednesday, Sept. 27, morning: [Accelerated molecular dynamics methods]()
 * Wednesday, Sept. 27, afternoon: [Adaptive multilevel splitting methods]()
 * Thursday, Sept. 28: [Computing average properties in molecular dynamics with Molly.jl](notebooks/molly_average.ipynb)
