@@ -1,7 +1,7 @@
 module Potentials
 
     export mueller_brown, grad_mueller_brown, LJClusterInteraction2D,lj_energy,lj_grad,lj_energy_threaded,lj_grad_threaded,entropic_switch,grad_entropic_switch
-    using Threads, Parameters
+    using Base.Threads, Parameters
 
 ### Mueller-Brown potential
 
