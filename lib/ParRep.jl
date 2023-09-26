@@ -45,7 +45,7 @@ module ParRep
                 alg.n_simulation_ticks += 1
                 current_macrostate = get_macrostate!(alg.macrostate_checker,alg.reference_walker,current_macrostate)
                 initialization_step +=1
-                log_state!(alg.logger,:initialisation; algorithm = alg)
+                log_state!(alg.logger,:initialization; algorithm = alg)
             end
             @info "Initialised in state $(current_macrostate)"
 
@@ -165,7 +165,7 @@ module ParRep
 
     function check_dephasing!(checker,replicas,current_macrostate,step_n) end
     function get_macrostate!(checker,walker,current_macrostate) end
-    function update_microstate!(simulator,walker;kwargs...) end
+    function update_microstate!(simulator,walker) end
     function check_death(checker,macrostate_a,macrostate_b,rng) end
-    function log_state!(logger,step; kwargs...) end
+    function log_state!(logger,event; kwargs...) end
 end
