@@ -5,8 +5,8 @@ This repository contains the various files for the hands-on sessions of the SINE
 The files for each sessions are given below.
 * Monday, Sept. 25: [Discretization of Langevin dynamics and its Metropolization](notebooks/langevin.ipynb)
 * Tuesday, Sept. 26: [Nonequilibrium systems and coupling methods](notebooks/coupling.ipynb)
-* Wednesday, Sept. 27, morning: [Accelerated molecular dynamics methods]()
-* Wednesday, Sept. 27, afternoon: [Adaptive multilevel splitting methods]()
+* Wednesday, Sept. 27, morning: [Accelerated molecular dynamics methods](notebooks/par_rep.ipynb)
+* Wednesday, Sept. 27, afternoon: [Adaptive multilevel splitting methods](notebooks/AMS.ipynb)
 * Thursday, Sept. 28: [Computing average properties in molecular dynamics with Molly.jl](notebooks/molly_average.ipynb)
 * Friday, Sept. 29: [Computation of transport coefficients with Molly.jl]()
 
